@@ -1,0 +1,35 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.cards {
+    color: navy;
+    border: 2px solid cadetblue;
+    border-radius: 10px;
+    background-color: beige;
+    width: 8em;
+    height: 6em;
+    text-align: center;
+}
+
+.btn {
+    background-color: lightblue;
+    border: 2px solid navy;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    color: navy;
+    text-align: center;
+    transition-duration: 0.2s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+    top: 10px;
+    right: 10px;
+
+}
+
+.btn:hover{
+    background-color: rgb(151, 186, 198);
+}
