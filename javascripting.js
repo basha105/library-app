@@ -8,6 +8,7 @@ function Book(title, author, year) {
 
 function addBookToLibrary(myBook) {
     myLibrary.push(myBook);
+    displayNewBook(myBook);
 }
 
 const container = document.querySelector("#container");
@@ -15,23 +16,45 @@ const container = document.querySelector("#container");
 function displayLibrary(currentLibrary) {
     for (let i=0; i<currentLibrary.length; i++) {
         let thisBook = currentLibrary[i];
-        const currentCard = document.createElement("div");
-        currentCard.classList.add("cards");
-        currentCard.textContent = String(thisBook.title) + " by " + String(thisBook.author) + ", published in " + String(thisBook.year);
-        container.appendChild(currentCard);
+        displayNewBook(thisBook);
     }
  }
 
 const newBookButton = document.querySelector("#newBook");
+const dialog = document.querySelector("dialog");
+const submitButton = document.querySelector("#submitForm");
+
 newBookButton.addEventListener("click", () => {
-    
+    dialog.showModal();
 })
 
+function displayNewBook(myBook) {
+    const newCard = document.createElement("div");
+    newCard.classList.add("cards");
+    newCard.textContent = String(myBook.title) + " by " + String(myBook.author) + ", published in " + String(myBook.year);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.textContent = "Delete";
+
+    newCard.appendChild(deleteButton);
+    container.appendChild(newCard);
 
 
- // let newBook = new Book("Gatsby", "Fitzgerald", 1925);
- // addBookToLibrary(newBook);
- // displayLibrary(myLibrary);
+}
+
+
+submitButton.addEventListener("click", () => {
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let year = document.getElementById("year").value;
+
+    let newBook = new Book(title, author, year);
+    addBookToLibrary(newBook);
+    dialog.close();
+})
+
+ displayLibrary(myLibrary);
 
 
 
