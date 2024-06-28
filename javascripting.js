@@ -1,9 +1,13 @@
 const myLibrary = [];
 
+let i=0;
+
 function Book(title, author, year) {
     this.title = title;
     this.author = author;
     this.year = year;
+    this.index = myLibrary.length;
+    
 }
 
 function addBookToLibrary(myBook) {
@@ -36,17 +40,21 @@ function displayNewBook(myBook) {
     const newCard = document.createElement("div");
     newCard.classList.add("cards");
     newCard.textContent = String(myBook.title) + " by " + String(myBook.author) + ", published in " + String(myBook.year);
+    
 
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", ()=> {
         newCard.remove();
-        
-        
-
-        
-
+        let currentIndex = myBook.index;
+        myLibrary.splice(currentIndex, 1);
+        for (let j=0; j<myLibrary.length; j++) {
+            if (myLibrary[j].index >= currentIndex) {
+                myLibrary[j].index = myLibrary[j].index - 1;
+            }
+        }
+        console.table(myLibrary);
     })
 
     const readButton = document.createElement("button");
@@ -73,8 +81,6 @@ submitButton.addEventListener("click", () => {
     dialog.close();
     console.table(myLibrary);
     displayLibrary(myLibrary);
-    
-    
 })
 
 

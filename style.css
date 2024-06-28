@@ -9,14 +9,13 @@ html {
     border: 2px solid cadetblue;
     border-radius: 10px;
     background-color: beige;
-    width: 8em;
-    height: 6em;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 4px;
+    padding: 10px;
     
 }
 
@@ -75,5 +74,9 @@ form {
     color: white;
     background-color: navy;
     border-radius: 8px;
+}
+
+.buttonDiv {
+    display: flex;
 }
 
