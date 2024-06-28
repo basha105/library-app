@@ -14,6 +14,10 @@ function addBookToLibrary(myBook) {
 const container = document.querySelector("#container");
 
 function displayLibrary(currentLibrary) {
+    let allCards = document.getElementsByClassName("cards");
+    for (let card in allCards) {
+        card.remove();
+    }
     for (let i=0; i<currentLibrary.length; i++) {
         let thisBook = currentLibrary[i];
         displayNewBook(thisBook);
@@ -36,12 +40,27 @@ function displayNewBook(myBook) {
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
     deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", ()=> {
+        newCard.remove();
+        
+        
 
+        
+
+    })
+
+    const readButton = document.createElement("button");
+    readButton.classList.add("read-button");
+    readButton.textContent = "Read";
+    
+    newCard.appendChild(readButton);
+    readButton.addEventListener("click", ()=> {
+
+    })
     newCard.appendChild(deleteButton);
     container.appendChild(newCard);
-
-
 }
+
 
 
 submitButton.addEventListener("click", () => {
@@ -52,7 +71,13 @@ submitButton.addEventListener("click", () => {
     let newBook = new Book(title, author, year);
     addBookToLibrary(newBook);
     dialog.close();
+    console.table(myLibrary);
+    displayLibrary(myLibrary);
+    
+    
 })
+
+
 
  displayLibrary(myLibrary);
 

@@ -67,6 +67,13 @@ form {
     color: white;
     background-color: navy;
     border-radius: 8px;
+}
 
+.read-button {
+    width: 60px;
+    height: 18px;
+    color: white;
+    background-color: navy;
+    border-radius: 8px;
 }
 
