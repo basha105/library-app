@@ -7,6 +7,7 @@ function Book(title, author, year) {
     this.author = author;
     this.year = year;
     this.index = myLibrary.length;
+    this.read = false;
     
 }
 
@@ -60,6 +61,17 @@ function displayNewBook(myBook) {
     const readButton = document.createElement("button");
     readButton.classList.add("read-button");
     readButton.textContent = "Read";
+    readButton.addEventListener("click", ()=> {
+        if (myBook.read == false) {
+            myBook.read = true;
+        }
+        else {
+            myBook.read = false;
+        }
+        console.table(myLibrary);
+
+    })
+
     
     newCard.appendChild(readButton);
     readButton.addEventListener("click", ()=> {
